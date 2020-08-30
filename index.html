@@ -27,7 +27,7 @@
             <div class="col-12 col-md-10 col-lg-8 px-0 d-flex">
                 <div class="row mx-0 align-self-center justify-content-center w-100">
                     <div class="videoWrapper d-flex px-0 w-100">
-                        <video ref="myvideo" autoplay muted id="myvideo" class="video" src="./assets/video.mp4"></video>
+                        <video ref="myvideo" autoplay muted loop id="myvideo" class="video" src="./assets/video.mp4"></video>
 
                         <div class="content d-flex flex-column" @click="playPause">
                             <div class="row mx-0 justify-content-center ">
@@ -35,7 +35,7 @@
                                     <a href="#" class="text-white"><i class="fa fa-2x fa-arrow-left"></i></a>
                                 </div>
                             </div>
-                            <div class="row mx-0 justify-content-center pt-3">
+                            <div class="row mx-0 justify-content-center pt-5 pt-md-3">
                                 <div v-if="isClicked" class="col-10 progressWrapper">
                                     <span class="text-danger text-small">$15000</span>
                                     <div class="progress">

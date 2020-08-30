@@ -1,5 +1,3 @@
-
-
 new Vue({
   el: "#app",
   data() {
@@ -7,18 +5,19 @@ new Vue({
       isPlaying: true,
       isClicked: false,
       isVisible: true,
-
     };
   },
 
   mounted() {
-
-    setTimeout(
-        ()=> {
-           this.$refs.myvideo.pause();
-           this.$refs.myvideo.muted = !this.$refs.myvideo.muted;
-           this.isPlaying = false;
-        }, 3000);     
+    setTimeout(() => {
+      //this.$refs.myvideo.pause();
+      //this.$refs.myvideo.muted = !this.$refs.myvideo.muted;
+      if (this.isPlaying) {
+        this.isVisible = false;
+      } else {
+        this.isVisible = true;
+      }
+    }, 3000);
   },
 
   methods: {
@@ -27,22 +26,24 @@ new Vue({
         this.$refs.myvideo.pause();
         this.isPlaying = !this.isPlaying;
         this.isClicked = true;
-        this.isVisible = true
-
-
+        this.isVisible = true;
       } else {
         this.$refs.myvideo.play();
         this.isPlaying = !this.isPlaying;
         this.isClicked = false;
-
-        setTimeout(() => {
-            if(this.isPlaying){
-                this.isVisible = false
-            } else {
-                this.isVisible = true
-            }
-        }, 3000);
+        this.$refs.myvideo.muted = false;
+        this.checkVideoStates;
       }
+    },
+
+    checkVideoStates() {
+      setTimeout(() => {
+        if (this.isPlaying) {
+          this.isVisible = false;
+        } else {
+          this.isVisible = true;
+        }
+      }, 3000);
     },
   },
 });
