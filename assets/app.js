@@ -1,10 +1,13 @@
+
+
 new Vue({
   el: "#app",
   data() {
     return {
       isPlaying: true,
       isClicked: false,
-      isVisible: true
+      isVisible: true,
+
     };
   },
 
@@ -12,23 +15,23 @@ new Vue({
 
     setTimeout(
         ()=> {
-            document.getElementById("myvideo").pause();
-            document.getElementById("myvideo").muted = !document.getElementById("myvideo").muted;
+           this.$refs.myvideo.pause();
+           this.$refs.myvideo.muted = !this.$refs.myvideo.muted;
            this.isPlaying = false;
-        }, 5000);     
+        }, 3000);     
   },
 
   methods: {
     playPause() {
       if (this.isPlaying) {
-        document.getElementById("myvideo").pause();
+        this.$refs.myvideo.pause();
         this.isPlaying = !this.isPlaying;
         this.isClicked = true;
         this.isVisible = true
 
 
       } else {
-        document.getElementById("myvideo").play();
+        this.$refs.myvideo.play();
         this.isPlaying = !this.isPlaying;
         this.isClicked = false;
 
