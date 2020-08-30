@@ -24,15 +24,16 @@ new Vue({
     playPause() {
       if (this.isPlaying) {
         this.$refs.myvideo.pause();
-        this.isPlaying = !this.isPlaying;
+        this.isPlaying = false;
         this.isClicked = true;
         this.isVisible = true;
       } else {
+
         this.$refs.myvideo.play();
-        this.isPlaying = !this.isPlaying;
+        this.isPlaying = true
         this.isClicked = false;
         this.$refs.myvideo.muted = false;
-        this.checkVideoStates;
+        this.checkVideoStates();
       }
     },
 
